@@ -40,6 +40,311 @@
       backDelay : 2000
    })
 
+/* ----- DYNAMIC CV DOWNLOAD ----- */
+   const cvDownloadLinks = document.querySelectorAll('.cv-download-link')
+
+   function escapeHtml(value) {
+      return String(value)
+         .replace(/&/g, '&amp;')
+         .replace(/</g, '&lt;')
+         .replace(/>/g, '&gt;')
+         .replace(/"/g, '&quot;')
+         .replace(/'/g, '&#39;')
+   }
+
+   function renderList(items) {
+      return items.map(item => `<li>${escapeHtml(item)}</li>`).join('')
+   }
+
+   function renderSkillGroup(title, items) {
+      return `
+         <section class="cv-block">
+            <h2>${escapeHtml(title)}</h2>
+            <div class="cv-chip-list">
+               ${items.map(item => `<span>${escapeHtml(item)}</span>`).join('')}
+            </div>
+         </section>
+      `
+   }
+
+   function renderExperience(items) {
+      return items.map(item => `
+         <article class="cv-entry">
+            <div class="cv-entry-head">
+               <h3>${escapeHtml(item.role)}</h3>
+               <span>${escapeHtml(item.period)}</span>
+            </div>
+            <p class="cv-entry-company">${escapeHtml(item.company)}</p>
+            <ul>${renderList(item.highlights)}</ul>
+         </article>
+      `).join('')
+   }
+
+   function renderProjects(items) {
+      return items.map(item => `
+         <article class="cv-entry">
+            <div class="cv-entry-head">
+               <h3>${escapeHtml(item.name)}</h3>
+               <span>${escapeHtml(item.stack)}</span>
+            </div>
+            <p>${escapeHtml(item.summary)}</p>
+         </article>
+      `).join('')
+   }
+
+   function createCvHtml(data) {
+      return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${escapeHtml(data.personal.name)} - CV</title>
+  <style>
+    :root {
+      --ink: #1f2937;
+      --muted: #5b6473;
+      --accent: #1e9fab;
+      --line: #dbe2ea;
+      --surface: #ffffff;
+      --chip: #eef8fa;
+      --page: #f5f7fb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--page);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    .cv-page {
+      width: min(960px, calc(100% - 32px));
+      margin: 24px auto;
+      background: var(--surface);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+    }
+    .cv-header {
+      padding-bottom: 24px;
+      border-bottom: 2px solid var(--line);
+    }
+    .cv-header h1 {
+      margin: 0 0 8px;
+      font-size: 38px;
+    }
+    .cv-header p {
+      margin: 0;
+    }
+    .cv-title {
+      font-size: 20px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .cv-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .cv-block {
+      margin-top: 28px;
+    }
+    .cv-block h2 {
+      margin: 0 0 14px;
+      font-size: 20px;
+      color: var(--accent);
+    }
+    .cv-entry {
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+    }
+    .cv-entry:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+    .cv-entry-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .cv-entry-head h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+    .cv-entry-head span {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .cv-entry-company {
+      margin: 4px 0 10px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .cv-entry p {
+      margin: 0;
+    }
+    .cv-entry ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+    }
+    .cv-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+    .cv-chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .cv-chip-list span {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--chip);
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .cv-simple-list {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .cv-footer {
+      margin-top: 30px;
+      padding-top: 18px;
+      border-top: 2px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    @media print {
+      body {
+        background: #fff;
+      }
+      .cv-page {
+        width: 100%;
+        margin: 0;
+        padding: 24px;
+        box-shadow: none;
+        border-radius: 0;
+      }
+    }
+    @media (max-width: 720px) {
+      .cv-page {
+        padding: 24px;
+      }
+      .cv-grid {
+        grid-template-columns: 1fr;
+      }
+      .cv-header h1 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="cv-page">
+    <header class="cv-header">
+      <h1>${escapeHtml(data.personal.name)}</h1>
+      <div class="cv-title">${escapeHtml(data.personal.title)}</div>
+      <p>${escapeHtml(data.personal.summary)}</p>
+      <div class="cv-contact">
+        <span>${escapeHtml(data.personal.location)}</span>
+        <span>${escapeHtml(data.personal.email)}</span>
+        <span>${escapeHtml(data.personal.phoneSaudi)}</span>
+        <span>${escapeHtml(data.personal.phoneIndia)}</span>
+        <span>${escapeHtml(data.personal.linkedin)}</span>
+        <span>${escapeHtml(data.personal.github)}</span>
+        <span>${escapeHtml(data.personal.portfolio)}</span>
+      </div>
+    </header>
+
+    <section class="cv-block">
+      <h2>Experience</h2>
+      ${renderExperience(data.experience)}
+    </section>
+
+    <section class="cv-block">
+      <h2>Projects</h2>
+      ${renderProjects(data.projects)}
+    </section>
+
+    <section class="cv-block">
+      <h2>Skills</h2>
+      <div class="cv-grid">
+        ${renderSkillGroup('Core Technologies', data.skills.core)}
+        ${renderSkillGroup('Backend & Architecture', data.skills.backend)}
+        ${renderSkillGroup('DevOps & Security', data.skills.devops)}
+        ${renderSkillGroup('Tools & Platforms', data.skills.tools)}
+      </div>
+    </section>
+
+    <section class="cv-block">
+      <div class="cv-grid">
+        <section>
+          <h2>Education</h2>
+          <ul class="cv-simple-list">${renderList(data.education)}</ul>
+        </section>
+        <section>
+          <h2>Certifications</h2>
+          <ul class="cv-simple-list">${renderList(data.certifications)}</ul>
+        </section>
+      </div>
+    </section>
+
+    <section class="cv-block">
+      <h2>Languages</h2>
+      <ul class="cv-simple-list">${renderList(data.languages)}</ul>
+    </section>
+
+    <footer class="cv-footer">
+      Generated dynamically from portfolio data on ${new Date().toLocaleDateString('en-GB')}.
+    </footer>
+  </main>
+</body>
+</html>`
+   }
+
+   function downloadGeneratedCv() {
+      const data = window.portfolioData
+      if (!data) {
+         return false
+      }
+
+      const html = createCvHtml(data)
+      const blob = new Blob([html], { type: 'text/html;charset=utf-8' })
+      const url = URL.createObjectURL(blob)
+      const link = document.createElement('a')
+
+      link.href = url
+      link.download = 'Mohd_Aqil_CV.html'
+      document.body.appendChild(link)
+      link.click()
+      link.remove()
+
+      window.setTimeout(function() {
+         URL.revokeObjectURL(url)
+      }, 1000)
+
+      return true
+   }
+
+   cvDownloadLinks.forEach(link => {
+      link.addEventListener('click', function(event) {
+         const didDownload = downloadGeneratedCv()
+
+         if (didDownload) {
+            event.preventDefault()
+         }
+      })
+   })
+
 /* ----- IMAGE PREVIEW ----- */
    const previewImages = document.querySelectorAll('.previewable-image')
    const imageModal = document.getElementById('imageModal')
