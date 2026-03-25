@@ -92,8 +92,12 @@
       `).join('')
    }
 
-   function renderContactLink(label, value, href) {
-      return `<a href="${escapeHtml(href)}">${escapeHtml(label)}: ${escapeHtml(value)}</a>`
+   function normalizePhoneNumber(value) {
+      return String(value).replace(/\D/g, '')
+   }
+
+   function renderContactLink(text, href) {
+      return `<a href="${escapeHtml(href)}">${escapeHtml(text)}</a>`
    }
 
    function createCvHtml(data) {
@@ -271,12 +275,12 @@
       <p>${escapeHtml(data.personal.summary)}</p>
       <div class="cv-contact">
         <span>${escapeHtml(data.personal.location)}</span>
-        ${renderContactLink('Email', data.personal.email, `mailto:${data.personal.email}`)}
-        ${renderContactLink('Saudi', data.personal.phoneSaudi, `tel:${data.personal.phoneSaudi.replace(/\s+/g, '')}`)}
-        ${renderContactLink('India', data.personal.phoneIndia, `tel:${data.personal.phoneIndia.replace(/\s+/g, '')}`)}
-        ${renderContactLink('LinkedIn', data.personal.linkedin, data.personal.linkedin)}
-        ${renderContactLink('GitHub', data.personal.github, data.personal.github)}
-        ${renderContactLink('Portfolio', data.personal.portfolio, data.personal.portfolio)}
+        ${renderContactLink(`Email: ${data.personal.email}`, `mailto:${data.personal.email}`)}
+        ${renderContactLink(`WhatsApp (Saudi): ${data.personal.phoneSaudi}`, `https://wa.me/${normalizePhoneNumber(data.personal.phoneSaudi)}`)}
+        ${renderContactLink(`WhatsApp (India): ${data.personal.phoneIndia}`, `https://wa.me/${normalizePhoneNumber(data.personal.phoneIndia)}`)}
+        ${renderContactLink('LinkedIn', data.personal.linkedin)}
+        ${renderContactLink('GitHub', data.personal.github)}
+        ${renderContactLink('Portfolio', data.personal.portfolio)}
       </div>
     </header>
 
