@@ -92,6 +92,10 @@
       `).join('')
    }
 
+   function renderContactLink(label, value, href) {
+      return `<a href="${escapeHtml(href)}">${escapeHtml(label)}: ${escapeHtml(value)}</a>`
+   }
+
    function createCvHtml(data) {
       return `<!DOCTYPE html>
 <html lang="en">
@@ -149,6 +153,17 @@
       margin-top: 16px;
       color: var(--muted);
       font-size: 14px;
+    }
+    .cv-contact a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .cv-contact a:hover {
+      text-decoration: underline;
+    }
+    .cv-contact span {
+      color: var(--muted);
     }
     .cv-block {
       margin-top: 28px;
@@ -256,12 +271,12 @@
       <p>${escapeHtml(data.personal.summary)}</p>
       <div class="cv-contact">
         <span>${escapeHtml(data.personal.location)}</span>
-        <span>${escapeHtml(data.personal.email)}</span>
-        <span>${escapeHtml(data.personal.phoneSaudi)}</span>
-        <span>${escapeHtml(data.personal.phoneIndia)}</span>
-        <span>${escapeHtml(data.personal.linkedin)}</span>
-        <span>${escapeHtml(data.personal.github)}</span>
-        <span>${escapeHtml(data.personal.portfolio)}</span>
+        ${renderContactLink('Email', data.personal.email, `mailto:${data.personal.email}`)}
+        ${renderContactLink('Saudi', data.personal.phoneSaudi, `tel:${data.personal.phoneSaudi.replace(/\s+/g, '')}`)}
+        ${renderContactLink('India', data.personal.phoneIndia, `tel:${data.personal.phoneIndia.replace(/\s+/g, '')}`)}
+        ${renderContactLink('LinkedIn', data.personal.linkedin, data.personal.linkedin)}
+        ${renderContactLink('GitHub', data.personal.github, data.personal.github)}
+        ${renderContactLink('Portfolio', data.personal.portfolio, data.personal.portfolio)}
       </div>
     </header>
 
