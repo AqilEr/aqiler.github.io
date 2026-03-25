@@ -13,15 +13,17 @@
     <!-- --------- FAVICON ---------- -->
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
 
-    <title>Portfolio | Ludiflex</title>
+    <title>Mohd Aqil | Senior Mobile App & Full Stack Developer</title>
 </head>
 <body>
    <div class="container">
     <!-- --------------- HEADER --------------- -->
       <nav id="header">
         <div class="nav-logo">
-            <p class="nav-name">Aqil</p>
-            <span>.</span>
+            <a href="#home" class="nav-profile">
+                <img src="assets/images/avatar.png" alt="Mohd Aqil profile photo" class="nav-profile-image">
+                <p class="nav-name">Mohd Aqil</p>
+            </a>
         </div>
         <div class="nav-menu" id="myNavMenu">
             <ul class="nav_menu_list">
@@ -31,6 +33,10 @@
                 </li>
                 <li class="nav_list">
                     <a href="#about" class="nav-link">About</a>
+                    <div class="circle"></div>
+                </li>
+                <li class="nav_list">
+                    <a href="#experience" class="nav-link">Experience</a>
                     <div class="circle"></div>
                 </li>
                 <li class="nav_list">
@@ -62,14 +68,20 @@
        <section class="featured-box" id="home">
           <div class="featured-text">
             <div class="featured-text-card">
-                <span>Mohd Aqil</span>
+                <span>Senior Mobile App & Full Stack Developer</span>
             </div>
             <div class="featured-name">
-                <p>I'm <span class="typedText"></span></p>
+                <p>Building <span class="typedText"></span></p>
             </div>
             <div class="featured-text-info">
-                <p>Experienced mobile app developer with a strong background in Flutter and native Android (Java & Kotlin).
+                <p>Senior full stack developer with 9+ years of experience in Flutter, Android, and Java Spring Boot. Specialized in building scalable, secure, high-performance enterprise applications, including Saudi Aramco platforms, with strong hands-on expertise in REST APIs, microservices, PostgreSQL, CI/CD pipelines, OpenShift deployment, and AI-driven automation.
                 </p>
+            </div>
+            <div class="featured-details">
+                <span>Dammam, Saudi Arabia</span>
+                <span>9+ years enterprise delivery</span>
+                <span>Flutter + Spring Boot</span>
+                <span>Saudi Aramco applications</span>
             </div>
             <div class="featured-text-btn">
                 <a href="https://wa.me/918081262277" target="_blank" rel="noopener noreferrer">
@@ -149,11 +161,6 @@
 
 
           </div>
-          <div class="featured-image">
-            <div class="image">
-                <img src="assets/images/avatar.png" alt="avatar">
-            </div>
-          </div>
           <div class="scroll-icon-box">
             <a href="#about" class="scroll-btn">
                 <i class="uil uil-mouse-alt"></i>
@@ -166,13 +173,20 @@
        <section class="section" id="about">
           <div class="top-header">
             <h1>About Me</h1>
+            <span>Profile summary, key skills, education, and certifications</span>
           </div>
-          <div class="row">
+          <div class="row about-content-row">
             <div class="col">
                 <div class="about-info">
-                    <h3>My introduction</h3>
-                    <p>Skilled in Flutter, Java, and Kotlin for building high-performance mobile applications. I also have experience integrating modern UI/UX components, REST APIs, and managing app lifecycles across both Android and iOS platforms."
+                    <h3>Profile Summary</h3>
+                    <p>With over 9 years of experience across mobile and backend engineering, I build enterprise-grade applications using Flutter, Android, Java, Kotlin, and Spring Boot. My work spans secure API integration, microservices architecture, CI/CD automation, cloud deployment, mobile security reviews, and scalable products for manufacturing, finance, procurement, ecommerce, and survey ecosystems.
                     </p>
+                    <ul class="about-highlights">
+                        <li>Delivered enterprise applications for Saudi Aramco, ERP platforms, finance products, procurement tools, ecommerce apps, and survey systems.</li>
+                        <li>Strong in Flutter, Android, Java, Kotlin, Dart, Spring Boot, REST APIs, microservices, PostgreSQL, MySQL, SQLite, and Firebase.</li>
+                        <li>Experienced with OpenShift, CloudBees CI/CD, MobSF, GitHub, GitLab, Bitbucket, Android Studio, IntelliJ IDEA, VS Code, and Xcode.</li>
+                        <li>Built AI-driven survey analysis, notification workflows, secure mobile integrations, and configurable enterprise modules at scale.</li>
+                    </ul>
                     <div class="about-btn">
 
                         <a href="https://docs.google.com/document/d/1NXN4NwHxBreRaNaMAxGLnfnpTnxwWf8r" target="_blank" rel="noopener noreferrer">
@@ -182,43 +196,172 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <div class="col skills-column">
                 <div class="skills-box">
                     <div class="skills-header">
-                        <h3>Programming Languages</h3>
+                        <h3>Core Technologies</h3>
                     </div>
                     <div class="skills-list">
+                        <span>Flutter</span>
+                        <span>Android Native</span>
                         <span>Dart</span>
                         <span>Java</span>
                         <span>Kotlin</span>
-                        <span>C#</span>
-                    </div>
-                </div>
-                <div class="skills-box">
-                    <div class="skills-header">
-                        <h3>Technologies & Frameworks</h3>
-                    </div>
-                    <div class="skills-list">
-                        <span>Android</span>
-                        <span>Flutter</span>
-                        <span>dot.net</span>
-                        <span>REST APIs</span>
                         <span>Spring Boot</span>
-                        <span>iOS</span>
                     </div>
                 </div>
                 <div class="skills-box">
                     <div class="skills-header">
-                        <h3>Database</h3>
+                        <h3>Backend & Architecture</h3>
                     </div>
                     <div class="skills-list">
-                        <span>Sqlite</span>
-                        <span>Firebase</span>
-                        <span>MySQL</span>
+                        <span>REST APIs</span>
+                        <span>Microservices</span>
                         <span>PostgreSQL</span>
+                        <span>MySQL</span>
+                        <span>SQLite</span>
+                        <span>Firebase</span>
+                        <span>AI Integration</span>
+                    </div>
+                </div>
+                <div class="skills-box">
+                    <div class="skills-header">
+                        <h3>DevOps & Security</h3>
+                    </div>
+                    <div class="skills-list">
+                        <span>OpenShift</span>
+                        <span>CloudBees CI/CD</span>
+                        <span>MobSF</span>
+                        <span>Secure APIs</span>
+                        <span>Performance Tuning</span>
+                        <span>Enterprise Security</span>
+                    </div>
+                </div>
+                <div class="skills-box">
+                    <div class="skills-header">
+                        <h3>Tools & Platforms</h3>
+                    </div>
+                    <div class="skills-list">
+                        <span>Android Studio</span>
+                        <span>IntelliJ IDEA</span>
+                        <span>VS Code</span>
+                        <span>Xcode</span>
+                        <span>GitHub</span>
+                        <span>GitLab</span>
+                        <span>Bitbucket</span>
+                    </div>
+                </div>
+                <div class="skills-box">
+                    <div class="skills-header">
+                        <h3>Domain Experience</h3>
+                    </div>
+                    <div class="skills-list">
+                        <span>Saudi Aramco Apps</span>
+                        <span>ERP</span>
+                        <span>Finance Apps</span>
+                        <span>Procurement</span>
+                        <span>Ecommerce</span>
+                        <span>Survey Platforms</span>
                     </div>
                 </div>
             </div>
+          </div>
+          <div class="credentials-grid">
+              <div class="credential-card">
+                  <h3>Education</h3>
+                  <p><strong>MCA, Computers</strong><span> IGNOU, Delhi | 2015 - 2018</span></p>
+                  <p><strong>B.Com</strong><span> Kanpur University | 2015 - 2016</span></p>
+                  <p><strong>PGDCA</strong><span> IGNOU | Valid from Jul 2015</span></p>
+              </div>
+              <div class="credential-card">
+                  <h3>Certifications</h3>
+                  <ul>
+                      <li>Certificate of Proficiency in Java</li>
+                      <li>PGDCA - IGNOU</li>
+                      <li>Mr Challenger - Seven Rocks</li>
+                      <li>Certificate of Proficiency - Trainedge</li>
+                  </ul>
+              </div>
+              <div class="credential-card">
+                  <h3>Languages</h3>
+                  <ul>
+                      <li>Hindi - Expert</li>
+                      <li>English - Proficient</li>
+                      <li>Arabic - Beginner</li>
+                  </ul>
+              </div>
+              <div class="credential-card">
+                  <h3>Enterprise Focus</h3>
+                  <ul>
+                      <li>Saudi Aramco enterprise platforms</li>
+                      <li>Spring Boot microservices and REST APIs</li>
+                      <li>OpenShift deployment and CloudBees CI/CD</li>
+                      <li>Mobile security analysis with MobSF</li>
+                  </ul>
+              </div>
+          </div>
+       </section>
+
+       <!-- -------------- EXPERIENCE BOX ---------------- -->
+       <section class="section" id="experience">
+          <div class="top-header">
+              <h1>Experience</h1>
+              <span>Employment history and delivery focus</span>
+          </div>
+          <div class="experience-grid">
+              <article class="experience-card">
+                  <p class="experience-time">Nov 2024 - Present</p>
+                  <h3>Senior Mobile App Developer</h3>
+                  <span class="experience-company">Kaar Technologies, Saudi Arabia</span>
+                  <p>Working on Saudi Aramco enterprise applications with Java Spring Boot backend systems, secure API design, MetaBrain AI-enabled modules, mobile security assessments, and enterprise-grade deployment workflows.</p>
+                  <div class="experience-skills">
+                      <span>Java</span>
+                      <span>Spring Boot</span>
+                      <span>PostgreSQL</span>
+                      <span>OpenShift</span>
+                      <span>CloudBees</span>
+                      <span>MobSF</span>
+                  </div>
+              </article>
+              <article class="experience-card">
+                  <p class="experience-time">Aug 2018 - Nov 2024</p>
+                  <h3>Senior Mobile App Developer</h3>
+                  <span class="experience-company">MenRocks International</span>
+                  <p>Led development of ERP, ecommerce, and consultation platforms. Improved app performance, managed teams, implemented secure API integrations, and delivered large mobile projects on time.</p>
+                  <div class="experience-skills">
+                      <span>Flutter</span>
+                      <span>Java</span>
+                      <span>Kotlin</span>
+                      <span>ERP Systems</span>
+                      <span>API Integration</span>
+                  </div>
+              </article>
+              <article class="experience-card">
+                  <p class="experience-time">Jan 2017 - Jul 2018</p>
+                  <h3>Android App Developer</h3>
+                  <span class="experience-company">Karvy Insights Limited</span>
+                  <p>Developed survey-based data collection applications, designed scalable SQL-backed questionnaire systems, and built dynamic mobile workflows for research operations.</p>
+                  <div class="experience-skills">
+                      <span>Android</span>
+                      <span>Java</span>
+                      <span>SQLite</span>
+                      <span>Survey Apps</span>
+                      <span>SQL</span>
+                  </div>
+              </article>
+              <article class="experience-card">
+                  <p class="experience-time">May 2016 - Jul 2018</p>
+                  <h3>Android App Developer</h3>
+                  <span class="experience-company">Mega Infomartix Software Solutions</span>
+                  <p>Developed ecommerce, taxi booking, and marketplace apps, integrated REST APIs, and worked across multiple production-level mobile applications for service clients.</p>
+                  <div class="experience-skills">
+                      <span>Android Studio</span>
+                      <span>Java</span>
+                      <span>Mobile Applications</span>
+                      <span>Ecommerce</span>
+                      <span>Client Delivery</span>
+                  </div>
+              </article>
           </div>
        </section>
 
@@ -227,32 +370,113 @@
        <section class="section" id="projects">
           <div class="top-header">
               <h1>Projects</h1>
+              <span>Selected products and platforms from my delivery portfolio</span>
           </div>
           <div class="project-container">
             <div class="project-box">
                 <i class="uil uil-briefcase-alt"></i>
-                <h3>Delivered</h3>
-                <label>12+ Finished Projects</label>
+                <h3>Saudi Aramco</h3>
+                <label>Built enterprise applications for employee engagement, procurement workflows, and finance operations.</label>
             </div>
             <div class="project-box">
                 <i class="uil uil-users-alt"></i>
-                <h3>Experience</h3>
-                <label>9+ years in mobile app development</label>
+                <h3>Full Stack Delivery</h3>
+                <label>Delivered Flutter frontends, Spring Boot backends, microservices, and database-driven workflows.</label>
             </div>
             <div class="project-box">
                 <i class="uil uil-award"></i>
-                <h3>Awards and Achievements</h3>
-                <label>7+ awards & achievements</label>
+                <h3>Security & DevOps</h3>
+                <label>Hands-on with MobSF, OpenShift, CloudBees CI/CD, secure API design, and performance optimization.</label>
             </div>
+          </div>
+          <div class="detail-grid">
+              <article class="detail-card">
+                  <span class="detail-meta">Kaar Technologies | Saudi Aramco Enterprise Platform</span>
+                  <h3>Aramco E4S</h3>
+                  <p>Built Java Spring Boot backend services for Aramco E4S, developed employee engagement survey modules, integrated MetaBrain AI for survey analysis, created dynamic email template generation and notification workflows, and optimized backend APIs and PostgreSQL performance for organization-scale onboarding.</p>
+                  <div class="detail-tags">
+                      <span>Java</span>
+                      <span>Spring Boot</span>
+                      <span>PostgreSQL</span>
+                      <span>OpenShift</span>
+                      <span>MetaBrain AI</span>
+                  </div>
+              </article>
+              <article class="detail-card">
+                  <span class="detail-meta">Kaar Technologies | Procurement & Supply Chain</span>
+                  <h3>PSCCT</h3>
+                  <p>Built Flutter frontend modules with Bloc state management, secure authentication, and backend API integration to support real-time enterprise procurement and supply chain data handling.</p>
+                  <div class="detail-tags">
+                      <span>Flutter</span>
+                      <span>Bloc</span>
+                      <span>Authentication</span>
+                      <span>Enterprise Data</span>
+                  </div>
+              </article>
+              <article class="detail-card">
+                  <span class="detail-meta">Kaar Technologies | Finance Domain</span>
+                  <h3>Aramco Finance Mobile Application</h3>
+                  <p>Built Flutter-based financial workflow features with dashboards, analytics, offline capability, and secure mobile architecture, backed by mobile security testing and enterprise compliance practices.</p>
+                  <div class="detail-tags">
+                      <span>Flutter</span>
+                      <span>Analytics</span>
+                      <span>Offline Support</span>
+                      <span>MobSF</span>
+                  </div>
+              </article>
+              <article class="detail-card">
+                  <span class="detail-meta">MenRocks International | Ecommerce Platform</span>
+                  <h3>Hiscraves</h3>
+                  <p>Developed major ecommerce features including cart, wishlist, short-form content experiences, and payment integration for a production-ready customer app.</p>
+                  <div class="detail-tags">
+                      <span>Flutter</span>
+                      <span>Ecommerce</span>
+                      <span>Payments</span>
+                      <span>User Experience</span>
+                  </div>
+              </article>
+              <article class="detail-card">
+                  <span class="detail-meta">MenRocks International | Consultation Platform</span>
+                  <h3>SeekEx</h3>
+                  <p>Implemented consultation workflows including chat, voice and video calling, and appointment booking to support a complete expert-advice mobile experience.</p>
+                  <div class="detail-tags">
+                      <span>Flutter</span>
+                      <span>Chat</span>
+                      <span>Voice/Video</span>
+                      <span>Appointments</span>
+                  </div>
+              </article>
+              <article class="detail-card">
+                  <span class="detail-meta">MenRocks International | Manufacturing ERP</span>
+                  <h3>MenRocks ERP</h3>
+                  <p>Developed ERP modules for manufacturing and logistics with mobile workflows supporting production, operations, and organization-wide process management.</p>
+                  <div class="detail-tags">
+                      <span>ERP</span>
+                      <span>Manufacturing</span>
+                      <span>Logistics</span>
+                      <span>Operations</span>
+                  </div>
+              </article>
+              <article class="detail-card">
+                  <span class="detail-meta">Karvy Insights | Research Platform</span>
+                  <h3>Survey Diary</h3>
+                  <p>Created a survey data collection system with configurable flows and analytics support for structured research and field operations.</p>
+                  <div class="detail-tags">
+                      <span>Android</span>
+                      <span>Survey Engine</span>
+                      <span>Analytics</span>
+                      <span>SQL</span>
+                  </div>
+              </article>
           </div>
        </section>
 
        <!-- -------------- CONTACT BOX ---------------- -->
 
-       <section class="section" id="contact">
+        <section class="section" id="contact">
           <div class="top-header">
             <h1>Get in touch</h1>
-            <span>Do you have a project in your mind, contact me here</span>
+            <span>Based in Dammam, Saudi Arabia and working across enterprise mobile and backend platforms</span>
           </div>
           <div class="row">
              <div class="col">
@@ -272,6 +496,18 @@
                      <!-- India Phone Number (WhatsApp) -->
                      <p><i class="uil uil-phone"></i>
                          <a href="https://wa.me/+918081262277" target="_blank" class="whatsapp-link">Tel (WhatsApp): +91 8081262277</a>
+                     </p>
+
+                     <p><i class="uil uil-linkedin-alt"></i>
+                         <a href="https://www.linkedin.com/in/mohdaqil/" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn: linkedin.com/in/mohdaqil</a>
+                     </p>
+
+                     <p><i class="uil uil-github-alt"></i>
+                         <a href="https://github.com/Aqil92" target="_blank" rel="noopener noreferrer" class="github-link">GitHub: github.com/Aqil92</a>
+                     </p>
+
+                     <p><i class="uil uil-map-marker"></i>
+                         <span class="availability-text">Location: Dammam, Saudi Arabia</span>
                      </p>
                  </div>
 
@@ -325,7 +561,27 @@
 
                      }
 
+                     .linkedin-link {
+                         color: #0e76a8;
+                     }
+
+                     .github-link {
+                         color: #24292f;
+                     }
+
+                     .availability-text {
+                         color: #555;
+                     }
+
                      .whatsapp-link:hover {
+                         text-decoration: underline;
+                     }
+
+                     .linkedin-link:hover {
+                         text-decoration: underline;
+                     }
+
+                     .github-link:hover {
                          text-decoration: underline;
                      }
                  </style>
@@ -376,7 +632,7 @@
     <!-- --------------- FOOTER --------------- -->
     <footer>
         <div class="top-footer">
-            <p>Mohd Aqil .</p>
+            <p>Mohd Aqil</p>
         </div>
         <div class="middle-footer">
             <ul class="footer-menu">
@@ -385,6 +641,9 @@
                 </li>
                 <li class="footer_menu_list">
                     <a href="#about">About</a>
+                </li>
+                <li class="footer_menu_list">
+                    <a href="#experience">Experience</a>
                 </li>
                 <li class="footer_menu_list">
                     <a href="#projects">Projects</a>

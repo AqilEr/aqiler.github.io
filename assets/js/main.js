@@ -33,7 +33,7 @@
 
 /* ----- TYPING EFFECT ----- */
    var typingEffect = new Typed(".typedText",{
-      strings : ["Mobile App Developer","Flutter Developer","Android Developer"],
+      strings : ["enterprise mobile apps","Spring Boot backends","AI-enabled workflows"],
       loop : true,
       typeSpeed : 100, 
       backSpeed : 80,
@@ -53,13 +53,16 @@
   sr.reveal('.featured-text-card',{})
   sr.reveal('.featured-name',{delay: 100})
   sr.reveal('.featured-text-info',{delay: 200})
-  sr.reveal('.featured-text-btn',{delay: 200})
-  sr.reveal('.social_icons',{delay: 200})
-  sr.reveal('.featured-image',{delay: 300})
+  sr.reveal('.featured-details',{delay: 250})
+  sr.reveal('.featured-text-btn',{delay: 300})
+  sr.reveal('.social_icons',{delay: 350})
   
 
   /* -- PROJECT BOX -- */
   sr.reveal('.project-box',{interval: 200})
+  sr.reveal('.experience-card',{interval: 200})
+  sr.reveal('.detail-card',{interval: 200})
+  sr.reveal('.credential-card',{interval: 200})
 
   /* -- HEADINGS -- */
   sr.reveal('.top-header',{})
