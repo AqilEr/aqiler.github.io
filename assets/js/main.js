@@ -152,7 +152,7 @@
    }
 
    function renderContactLink(text, href) {
-      return `<a href="${escapeHtml(href)}">${escapeHtml(text)}</a>`
+      return `<a href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(text)}</a>`
    }
 
    function createCvHtml(data) {
