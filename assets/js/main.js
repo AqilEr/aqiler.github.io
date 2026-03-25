@@ -40,6 +40,49 @@
       backDelay : 2000
    })
 
+/* ----- IMAGE PREVIEW ----- */
+   const previewImages = document.querySelectorAll('.previewable-image')
+   const imageModal = document.getElementById('imageModal')
+   const imageModalContent = document.getElementById('imageModalContent')
+   const imageModalClose = document.getElementById('imageModalClose')
+   const imageModalBackdrop = document.getElementById('imageModalBackdrop')
+
+   function openImageModal(src, alt) {
+      imageModalContent.src = src
+      imageModalContent.alt = alt || 'Expanded image preview'
+      imageModal.classList.add('active')
+      imageModal.setAttribute('aria-hidden', 'false')
+      document.body.classList.add('preview-open')
+   }
+
+   function closeImageModal() {
+      imageModal.classList.remove('active')
+      imageModal.setAttribute('aria-hidden', 'true')
+      document.body.classList.remove('preview-open')
+   }
+
+   previewImages.forEach(image => {
+      image.addEventListener('click', function(event) {
+         event.preventDefault()
+         event.stopPropagation()
+         openImageModal(this.src, this.alt)
+      })
+   })
+
+   imageModalClose.addEventListener('click', closeImageModal)
+
+   imageModalBackdrop.addEventListener('click', function(event) {
+      if (event.target === imageModalBackdrop) {
+         closeImageModal()
+      }
+   })
+
+   document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape' && imageModal.classList.contains('active')) {
+         closeImageModal()
+      }
+   })
+
 
 /* ----- ## -- SCROLL REVEAL ANIMATION -- ## ----- */
    const sr = ScrollReveal({
