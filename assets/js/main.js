@@ -40,6 +40,61 @@
       backDelay : 2000
    })
 
+/* ----- VISITOR COUNTER ----- */
+   const visitorCountElement = document.getElementById('visitorCount')
+   const visitorCountLabel = document.getElementById('visitorCountLabel')
+   const visitorNamespace = 'aqiler-github-io'
+   const visitorCounterName = 'portfolio-visitors'
+   const visitorStorageKey = 'aqiler-portfolio-visitor-counted'
+
+   async function updateVisitorCount() {
+      if (!visitorCountElement) {
+         return
+      }
+
+      let hasCounted = false
+
+      try {
+         hasCounted = window.localStorage.getItem(visitorStorageKey) === 'true'
+      } catch (error) {
+         hasCounted = false
+      }
+
+      const endpoint = hasCounted
+         ? `https://api.counterapi.dev/v1/${visitorNamespace}/${visitorCounterName}/`
+         : `https://api.counterapi.dev/v1/${visitorNamespace}/${visitorCounterName}/up`
+
+      try {
+         const response = await fetch(endpoint, {
+            method: 'GET',
+            cache: 'no-store'
+         })
+
+         if (!response.ok) {
+            throw new Error(`Counter request failed with status ${response.status}`)
+         }
+
+         const result = await response.json()
+         const count = Number(result.count || 0)
+
+         visitorCountElement.textContent = count.toLocaleString('en-IN')
+
+         if (!hasCounted) {
+            try {
+               window.localStorage.setItem(visitorStorageKey, 'true')
+            } catch (error) {
+               // Ignore storage issues and still show the fetched count.
+            }
+         }
+      } catch (error) {
+         visitorCountLabel.textContent = 'Portfolio visitors unavailable'
+         visitorCountElement.textContent = '--'
+         console.error('Visitor counter error:', error)
+      }
+   }
+
+   updateVisitorCount()
+
 /* ----- DYNAMIC CV DOWNLOAD ----- */
    const cvDownloadLinks = document.querySelectorAll('.cv-download-link')
 
