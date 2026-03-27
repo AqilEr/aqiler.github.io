@@ -823,6 +823,9 @@ footer{
         height: 90vh;
         transition: .3s;
     }
+    :root.dark-mode .nav-menu{
+        background: rgba(30, 40, 55, 0.9);
+    }
     .nav_menu_list{
         flex-direction: column;
     }
@@ -895,6 +898,13 @@ footer{
     }
     .nav-name{
         font-size: 20px;
+    }
+    .nav-button{
+        display: flex;
+        align-items: center;
+    }
+    .theme-toggle{
+        padding: 0 10px;
     }
     .featured-name{
         font-size: 40px;
