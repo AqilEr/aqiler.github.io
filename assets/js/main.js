@@ -1,3 +1,57 @@
+/* ----- DARK MODE TOGGLE ----- */
+function initThemeToggle() {
+    const themeToggle = document.getElementById('themeToggle');
+    const htmlElement = document.documentElement;
+    const THEME_KEY = 'portfolio-theme-mode';
+    
+    // Load saved theme preference or check system preference
+    const loadTheme = () => {
+        const savedTheme = localStorage.getItem(THEME_KEY);
+        if (savedTheme) {
+            return savedTheme;
+        }
+        // Check system preference
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    
+    // Set theme and update UI
+    const setTheme = (theme) => {
+        if (theme === 'dark') {
+            htmlElement.classList.add('dark-mode');
+            if (themeToggle) {
+                themeToggle.innerHTML = '<i class="uil uil-sun"></i>';
+                themeToggle.title = 'Switch to light mode';
+            }
+        } else {
+            htmlElement.classList.remove('dark-mode');
+            if (themeToggle) {
+                themeToggle.innerHTML = '<i class="uil uil-moon"></i>';
+                themeToggle.title = 'Switch to dark mode';
+            }
+        }
+        localStorage.setItem(THEME_KEY, theme);
+    };
+    
+    // Initialize theme on page load
+    const currentTheme = loadTheme();
+    setTheme(currentTheme);
+    
+    // Toggle theme on button click
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const isDarkMode = htmlElement.classList.contains('dark-mode');
+            setTheme(isDarkMode ? 'light' : 'dark');
+        });
+    }
+}
+
+// Initialize theme toggle when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initThemeToggle);
+} else {
+    initThemeToggle();
+}
+
 /* ----- NAVIGATION BAR FUNCTION ----- */
     function myMenuFunction(){
       var menuBtn = document.getElementById("myNavMenu");

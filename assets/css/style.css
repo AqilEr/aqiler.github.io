@@ -18,6 +18,22 @@
 
 }
 
+/* ----- DARK MODE VARIABLES ----- */
+:root.dark-mode{
+    --body-color: rgb(20, 25, 35);
+    --color-white: rgb(30, 40, 55);
+
+    --text-color-second: rgb(220, 220, 220);
+    --text-color-third: rgb(100, 200, 210);
+
+    --first-color: rgb(138, 115, 255);
+    --first-color-hover: rgb(110, 95, 220);
+
+    --second-color: rgb(50, 220, 255);
+    --third-color: rgb(220, 190, 80);
+    --first-shadow-color: rgba(0, 0, 0, 0.4);
+}
+
 /* ----- BASE ----- */
 *{
     margin: 0;
@@ -39,12 +55,22 @@ html{
 ::-webkit-scrollbar-track{
     background: #f1f1f1;
 }
+:root.dark-mode ::-webkit-scrollbar-track{
+    background: rgb(30, 40, 55);
+}
 ::-webkit-scrollbar-thumb{
     background: #ccc;
     border-radius: 30px;
 }
+:root.dark-mode ::-webkit-scrollbar-thumb{
+    background: rgb(70, 90, 120);
+    border-radius: 30px;
+}
 ::-webkit-scrollbar-thumb:hover{
     background: #bbb;
+}
+:root.dark-mode ::-webkit-scrollbar-thumb:hover{
+    background: rgb(100, 120, 150);
 }
 
 
@@ -59,6 +85,15 @@ html{
     border-radius: 10px;
     cursor: pointer;
     transition: .4s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 48px;
+    line-height: 1;
+    text-decoration: none !important;
+}
+.btn:hover {
+    text-decoration: none !important;
 }
 .btn>i{
     margin-left: 10px;
@@ -896,4 +931,92 @@ footer{
         max-width: 92vw;
         border-radius: 22px;
     }
+}
+
+/* ----- DARK MODE TOGGLE BUTTON ----- */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+    line-height: 90px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 20px;
+}
+
+.theme-toggle:hover {
+    background: rgba(110, 87, 224, 0.08);
+}
+
+.theme-toggle i {
+    font-size: 20px;
+    color: var(--text-color-second);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.theme-toggle:hover i {
+    color: var(--first-color);
+    transform: rotate(20deg);
+}
+
+/* ----- DARK MODE SPECIFIC STYLES ----- */
+:root.dark-mode .theme-toggle {
+    background: none;
+}
+
+:root.dark-mode .theme-toggle:hover {
+    background: rgba(100, 200, 210, 0.1);
+}
+
+:root.dark-mode .theme-toggle i {
+    color: var(--text-color-third);
+}
+
+:root.dark-mode .theme-toggle:hover i {
+    color: var(--second-color);
+}
+
+:root.dark-mode .input-field,
+:root.dark-mode textarea {
+    background: rgb(40, 50, 65);
+    border-color: rgb(70, 90, 120);
+    color: rgb(220, 220, 220);
+}
+
+:root.dark-mode .input-field::placeholder,
+:root.dark-mode textarea::placeholder {
+    color: rgb(150, 160, 180);
+}
+
+:root.dark-mode .project-box {
+    background-color: rgb(35, 45, 60);
+}
+
+:root.dark-mode .project-box h3 {
+    color: rgb(220, 220, 220);
+}
+
+:root.dark-mode .project-box label {
+    color: rgb(180, 180, 200);
+}
+
+:root.dark-mode footer {
+    background: rgb(30, 40, 55);
+}
+
+:root.dark-mode .footer_menu_list a {
+    color: rgb(200, 200, 220);
+}
+
+:root.dark-mode .bottom-footer {
+    color: rgb(150, 160, 180);
+}
+
+:root.dark-mode .bottom-footer a {
+    color: rgb(180, 200, 220);
 }
