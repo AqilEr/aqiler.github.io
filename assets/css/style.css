@@ -96,6 +96,15 @@ html{
     text-decoration: none !important;
 }
 .btn>i{
+    margin-left: 0;
+}
+a .btn {
+    text-decoration: none !important;
+}
+a:has(.btn) {
+    text-decoration: none !important;
+}
+.btn>i{
     margin-left: 10px;
 }
 .btn:hover{
