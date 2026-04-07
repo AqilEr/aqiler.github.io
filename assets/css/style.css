@@ -983,6 +983,15 @@ footer{
     transform: rotate(20deg);
 }
 
+.theme-toggle:focus {
+    outline: none;
+}
+
+.theme-toggle:focus-visible {
+    outline: 2px solid var(--first-color);
+    outline-offset: 4px;
+}
+
 /* ----- DARK MODE SPECIFIC STYLES ----- */
 :root.dark-mode .theme-toggle {
     background: none;
@@ -998,6 +1007,23 @@ footer{
 
 :root.dark-mode .theme-toggle:hover i {
     color: var(--second-color);
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .theme-toggle:hover,
+    :root.dark-mode .theme-toggle:hover {
+        background: none;
+    }
+
+    .theme-toggle:hover i,
+    :root.dark-mode .theme-toggle:hover i {
+        color: inherit;
+        transform: none;
+    }
+
+    .theme-toggle {
+        -webkit-tap-highlight-color: transparent;
+    }
 }
 
 :root.dark-mode .input-field,
